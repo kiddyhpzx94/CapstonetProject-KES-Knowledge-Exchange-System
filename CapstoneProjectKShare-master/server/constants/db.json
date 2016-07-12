@@ -1,0 +1,4 @@
+{
+  "mongolab": "mongodb://kshareadmin:kshare2016@ds021943.mlab.com:21943/kshare",
+  "localhost": "mongodb://localhost/kshare"
+}

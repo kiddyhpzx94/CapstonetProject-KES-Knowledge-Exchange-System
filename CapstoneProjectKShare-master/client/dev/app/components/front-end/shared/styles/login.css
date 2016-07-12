@@ -1,0 +1,73 @@
+/*
+Giang style Logig-Register Modal
+*/
+
+a {
+  text-decoration: none;
+  color: darkslategray;
+}
+.form-text{
+  color: darkslategray;
+}
+.modal-sm{
+  width: 400px;
+}
+.loginPanel{
+  padding: 0 20px;
+  margin: 20px 20px;
+}
+.col-md-6{
+  margin-top: 20px;
+  padding: 0 20px;
+  border-width:2px;
+  border-right-style:outset;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: #869989;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #869989;
+  opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #869989;
+  opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #869989;
+}
+.end-modal{
+  margin-bottom: 30px;
+}
+/*.form-text{*/
+
+/*}*/
+.box-header{
+  text-align: center;
+  border-bottom-style: solid;
+  border-width:2px ;
+}
+.modal {
+  text-align: center;
+  color: darkslategray;
+}
+.modal-content{
+  background-color: #FDFBFB;
+}
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* End Login Modal*/

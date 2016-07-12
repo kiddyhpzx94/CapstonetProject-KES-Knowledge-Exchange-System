@@ -1,0 +1,114 @@
+<nav-bar></nav-bar>
+<sidebar></sidebar>
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+  <div class="row">
+    <ol class="breadcrumb">
+      <li>
+        <a href="#">
+          <svg class="glyph stroked home">
+            <use xlink:href="#stroked-home"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="active">Users</li>
+    </ol>
+  </div>
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3">
+              <h2>Update User</h2>
+            </div>
+            <div class="col-md-6"></div>
+            <div class="col-md-3"></div>
+
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" *ngIf="user">
+              <form [ngFormModel]="userUpdateForm" (ngSubmit)="updateUser(userUpdateForm.value)">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h1>{{user.username}}</h1>
+                    <input type="hidden" id="_id" name="_id" [ngModel]="user._id"
+                           [ngFormControl]="userUpdateForm.controls['_id']" >
+                    <label for="firstName">First name</label>
+                    <input class="form-control" type="text"
+                           required="required" id="firstName"
+                           name="firstName" [ngModel]="user.firstName"
+                           [ngFormControl]="userUpdateForm.controls['firstName']"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="lastName">Last name</label>
+                    <input class="form-control" type="text"
+                           required="required" id="lastName"
+                           name="lastName" [ngModel]="user.lastName"
+                           [ngFormControl]="userUpdateForm.controls['lastName']"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="displayName">Display Name</label>
+                    <input class="form-control" type="text"
+                           required="required" id="displayName"
+                           name="displayName" [ngModel]="user.displayName"
+                           [ngFormControl]="userUpdateForm.controls['displayName']"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="username">Username</label>
+                    <input class="form-control" type="text"
+                           required="required" id="username"
+                           name="username" [ngModel]="user.username"
+                           [ngFormControl]="userUpdateForm.controls['username']"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="text"
+                           required="required" id="email"
+                           name="email" [ngModel]="user.email" [ngFormControl]="userUpdateForm.controls['email']"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="role">Role</label>
+                    <select name="role" id="role" required="required"
+                            class="form-control" [ngModel]="user.role"
+                            [ngFormControl]="userUpdateForm.controls['role']">
+                      <option value="admin">Admin</option>
+                      <option value="manager">Manager</option>
+                      <option value="instructor">Instructor</option>
+                      <option value="normal" default selected>Normal</option>
+                    </select>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Update
+                    </button>
+                    <button type="reset" class="btn btn-warning">Reset
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div *ngIf="!user"> User not found! </div>
+            <div class="col-md-3"></div>
+          </div>
+          <!-- /.row -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/.row-->
+</div>

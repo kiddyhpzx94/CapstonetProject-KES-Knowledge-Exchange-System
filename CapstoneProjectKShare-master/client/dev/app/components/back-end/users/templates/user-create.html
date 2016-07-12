@@ -1,0 +1,170 @@
+<!-- Modal Create User-->
+
+<div class="modal fade" id="modalCreateUser" tabindex="-1" role="dialog"
+     aria-labelledby="CreateUser">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Create new user</h4>
+      </div>
+      <div class="modal-body">
+        <form [ngFormModel]="userForm" (ngSubmit)="addUser(userForm.value)"  >
+          <div class="row">
+            <div class="col-md-12">
+              <label for="firstName">First name</label>
+              <input class="form-control"
+                     type="text"
+                     required="required"
+                     id="firstName"
+                     name="firstName"
+                     pInputText
+                     [ngFormControl]="userForm.controls['firstName']"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="lastName">Last name</label>
+              <input class="form-control"
+                     type="text"
+                     required="required"
+                     id="lastName"
+                     name="lastName"
+                     [ngFormControl]="userForm.controls['lastName']"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="displayName">Display Name</label>
+              <input class="form-control"
+                     type="text"
+                     required="required"
+                     id="displayName"
+                     name="displayName"
+                     [ngFormControl]="userForm.controls['displayName']"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="displayName">Birthday</label>
+              <input class="form-control"
+                     type="date"
+                     required="required"
+                     id="birthday"
+                     name="birthday"
+                     [ngFormControl]="userForm.controls['birthday']"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="username">Username</label>
+              <input class="form-control"
+                     type="text"
+                     required="required"
+                     id="username"
+                     name="username"
+                     [ngFormControl]="userForm.controls['username']"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="password">Password</label>
+              <input class="form-control"
+                     type="password"
+                     required="required"
+                     id="password"
+                     name="password"
+                     [ngFormControl]="userForm.controls['password']"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="email">Email</label>
+              <input class="form-control"
+                     type="email"
+                     required="required"
+                     id="email"
+                     name="email"
+                     [ngFormControl]="userForm.controls['email']"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="role">Role</label>
+              <select name="role"
+                      id="role"
+                      required="required"
+                      class="form-control"
+                      [ngFormControl]="userForm.controls['role']"
+              >
+                <option value="admin">Admin</option>
+                <option value="manager">Manager</option>
+                <option value="instructor">Instructor</option>
+                <option value="normal" selected>Normal</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="email">Lĩnh vực am hiểu  </label>
+              <input class="form-control"
+                     type="text"
+                     required="required"
+                     id="ownKnowledgeId"
+                     name="ownKnowledgeId"
+                     [ngFormControl]="userForm.controls['ownKnowledgeId']"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="email">Lĩnh vực quan tâm   </label>
+              <input class="form-control"
+                     type="text"
+                     required="required"
+                     id="interestedKnowledgeId"
+                     name="interestedKnowledgeId"
+                     [ngFormControl]="userForm.controls['interestedKnowledgeId']"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="email">Thời gian    </label>
+              <input class="form-control"
+                     type="text"
+                     required="required"
+                     id="onlineTime"
+                     name="onlineTime"
+                     [ngFormControl]="userForm.controls['onlineTime']"
+              />
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary" >Create
+              </button>
+              <button type="reset" class="btn btn-warning">Reset
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

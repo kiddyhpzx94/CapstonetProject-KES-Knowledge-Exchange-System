@@ -1,0 +1,62 @@
+<div class="modal fade" id="modalCreateRequest" tabindex="-1" role="dialog" aria-labelledby="modalRequest">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Tạo câu hỏi mới</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" [ngFormModel]="requestForm" (ngSubmit)="addRequest(requestForm.value)">
+          
+          <div class="row">
+            <div class="col-md-12">
+              <label for="title">Tiêu đề</label>
+              <input class="form-control" type="text" required="required" id="title" name="title"
+                     [ngFormControl]="requestForm.controls['title']"/>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-12">
+              <label for="description">Nội dung</label>
+              <textarea class="form-control" type="text" required="required" id="description" name="description"
+                        [ngFormControl]="requestForm.controls['description']"></textarea>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-12">
+              <label for="knowledge">Lĩnh vực</label>
+              <select class="form-control" id="knowledge" [ngFormControl]="requestForm.controls['knowledgeId']" [ngModel]="knowledgeId" required="required">
+                <option>Chọn lĩnh vực</option>
+                <optgroup *ngFor="let k of knowledges" label="{{k.name}}">
+                  <option *ngFor="let sub of k.subCategory" value={{sub._id}}>{{sub.name}}</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-12">
+              <label for="user">Người tạo</label>
+              <input class="form-control" type="text" required="required" id="user" name="user"
+                        [ngModel]="user"
+                        [ngFormControl]="requestForm.controls['user']" disabled/>
+            </div>
+          </div>
+          
+          <br>
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary">Tạo</button>
+              <button type="reset" class="btn btn-warning">Nhập lại</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Hủy bỏ</button>
+      </div>
+    </div>
+  </div>
+</div>

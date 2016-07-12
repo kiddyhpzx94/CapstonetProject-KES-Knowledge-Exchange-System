@@ -1,0 +1,31 @@
+.mg-top-15px{
+  margin-top: 15px;
+}
+table {
+  border-radius: 1px;
+  text-align: center;
+}
+.tb-header{
+  background-color: #30a5ff;
+  color: white;
+}
+.tb-header>th{
+  text-align: center;
+}
+.non-deco{
+  text-decoration: none;
+}
+
+.dis-block{
+  display: block;
+}
+
+td>a{
+  padding: 0px 5px;
+}
+#createUser{
+  height: 40px;
+  width: 150px;
+  border-bottom: none;
+}
+

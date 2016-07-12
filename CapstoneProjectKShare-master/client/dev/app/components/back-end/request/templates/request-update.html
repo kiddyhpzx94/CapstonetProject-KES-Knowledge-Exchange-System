@@ -1,0 +1,45 @@
+<div class="container" id="requestupdate" style="min-height:437px">
+  <div class="col-xs-12 col-sm-9 fixEfMenu">
+    <div class="panel panel-default card-rq">
+      <form role="form" [ngFormModel]="updateRequestFormCli" (ngSubmit)="updateRequest(updateRequestFormCli.value)">
+
+        <div class="panel-body">
+          <p class="lead">Chỉnh sửa <b>{{title}}</b></p>
+          <div class="form-group" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 fixEfMenu">
+            <label class="control-label" for="title">Tiêu đề </label>
+            <input class="form-control" id="title" type="text" [ngModel]="title" [ngFormControl]="updateRequestFormCli.controls['title']"
+            />
+          </div>
+          <br>
+
+          <div class="form-group" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 fixEfMenu" hidden>
+            <label class="control-label" for="id">ID </label>
+            <input class="form-control" id="id" type="text" [ngModel]="id" [ngFormControl]="updateRequestFormCli.controls['_id']" />
+          </div>
+
+          <div class="form-group" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 fixEfMenu">
+            <label for="knowledge">Lĩnh vực</label>
+            <select class="form-control" id="knowledge" [ngFormControl]="updateRequestFormCli.controls['knowledgeId']" [ngModel]="knowledgeId">
+                <option>Chọn lĩnh vực</option>
+                <optgroup *ngFor="let k of knowledges" label="{{k.name}}">
+                  <option *ngFor="let sub of k.subCategory" value={{sub._id}}>{{sub.name}}</option>
+                </optgroup>
+              </select>
+          </div>
+          <br>
+
+          <div class="form-group" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 fixEfMenu">
+            <label class="control-label" for="description">Nội dung </label>
+            <textarea class="form-control" id="description" type="text" [ngModel]="description" [ngFormControl]="updateRequestFormCli.controls['description']"></textarea>
+          </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>Cập nhập</button>
+        <!--<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>Hủy bỏ</button>-->
+        <a [routerLink]="['/admin/requests']"><span class="btn btn-danger glyphicon glyphicon-remove">Hủy</span></a>
+
+        <br>
+      </form>
+    </div>
+  </div>
+</div>

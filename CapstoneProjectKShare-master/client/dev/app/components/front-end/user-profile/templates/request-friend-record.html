@@ -1,0 +1,28 @@
+<li>
+    <div class="col-md-6">
+        <div class="well well-sm">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                </div>
+                <div class="col-md-8">
+                    <a [routerLink]="['/user/'+requestUser]">
+                        <h4>{{requestUser}}</h4>
+                    </a>
+                    <small><cite title="San Francisco, USA">Hanoi<i class="glyphicon glyphicon-map-marker">
+                        </i></cite></small>
+                    <p>
+                        <i class="glyphicon glyphicon-envelope"></i>{{email}}
+                        <br />
+                        <i class="glyphicon glyphicon-globe"></i>{{displayname}}
+                        <br />
+                        <i class="glyphicon glyphicon-gift"></i>{{level}}</p>
+                    <button type="button" class="btn btn-success" *ngIf="!isAdded && isFriend" (click)="acceptRequest()">Đồng ý</button>
+                    <button type="button" class="btn btn-success" *ngIf="isAdded">Đã là bạn bè</button>
+                    <button type="button" class="btn btn-danger" *ngIf="isFriend && !isAdded" (click)="deleteFriend()">Hủy bỏ</button>
+                    <button type="button" class="btn btn-warning" *ngIf="!isFriend">Đã từ chối</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>

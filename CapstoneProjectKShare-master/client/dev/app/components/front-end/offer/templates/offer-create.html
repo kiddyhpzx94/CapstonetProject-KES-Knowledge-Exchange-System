@@ -1,0 +1,64 @@
+<div class="modal fade" id="modalOfferRequest" tabindex="-1" role="dialog" aria-labelledby="modalOffer">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Tạo offer</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" [ngFormModel]="offerForm" (ngSubmit)="addOffer(offerForm.value)">
+          <div class="row" hidden>
+            <div class="col-md-12">
+              <label for="_id">ID</label>
+              <input class="form-control" type="text" value="{{rid}}" [ngModel]="rid" [ngFormControl]="offerForm.controls['requestId']"
+                required="required" id="_id" name="rid" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <label for="price">Giá tiền</label>
+              <input class="form-control" type="number" required="required" id="price" name="price" [ngModel]="price" min="1" [ngFormControl]="offerForm.controls['price']"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <label for="numberOfLecture">Số buổi học</label>
+              <input class="form-control" type="number" required="required" id="numberOfLecture" name="numberOfLecture" [ngModel]="numberOfLecture"
+                min="1" [ngFormControl]="offerForm.controls['numberOfLecture']" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <label for="message">Lời nhắn</label>
+              <textarea class="form-control" type="text" required="required" id="message" name="message" [ngModel]="message" [ngFormControl]="offerForm.controls['message']"></textarea>
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-md-12">
+              <label for="user">Người tạo</label>
+              <input class="form-control" type="text" required="required" id="user" name="user" [ngModel]="user" [ngFormControl]="offerForm.controls['user']"
+                disabled/>
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary">Tạo</button>
+              <button type="reset" class="btn btn-warning">Nhập lại</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Hủy bỏ</button>
+      </div>
+    </div>
+  </div>
+</div>

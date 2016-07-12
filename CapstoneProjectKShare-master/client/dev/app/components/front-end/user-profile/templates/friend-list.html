@@ -1,0 +1,32 @@
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="container">
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#friends">Friends</a></li>
+        <li><a data-toggle="tab" href="#friendrequests">Friend requests</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="friends"  class="tab-pane fade in active">
+          <div class="row">
+            <ul *ngFor="let friendName of friendNames">
+              
+                <friend-record friendName="{{friendName}}"></friend-record>
+
+            </ul>
+          </div>
+        </div>
+
+        <div id="friendrequests" *ngIf="pendingRequests" class="tab-pane fade">
+            <div class="row">
+            <ul *ngFor="let pendingRequest of pendingRequests">
+              
+                <request-friend-record requestUser="{{pendingRequest.user1}}"></request-friend-record>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>

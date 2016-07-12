@@ -1,0 +1,46 @@
+<div class="modal fade" id="{{kId}}" tabindex="-1" role="dialog" aria-labelledby="modalSubCategory">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Tạo</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" [ngFormModel]="subCategoryForm" (ngSubmit)="addKnowledge(subCategoryForm.value)">
+          <div class="row" hidden>
+            <div class="col-md-12">
+              <label for="_id">Parent</label>
+              <input class="form-control" type="text" value="{{kId}}" [ngModel]="kId" [ngFormControl]="subCategoryForm.controls['parent']"
+                      required="required" id="_id" name="kId"/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <label for="description">Tên</label>
+              <textarea class="form-control" type="text" required="required" id="name" name="name"
+                        [ngFormControl]="subCategoryForm.controls['name']"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="description">Nội dung</label>
+              <textarea class="form-control" type="text" required="required" id="description" name="description"
+                        [ngFormControl]="subCategoryForm.controls['description']"></textarea>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary">Tạo</button>
+              <button type="reset" class="btn btn-warning">Nhập lại</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.search-container {
+  display: block;
+  padding: 20px;
+}
+.search-button {
+  position: relative;
+  left: -15px;
+  float: right;
+  bottom: 40px;
+  border: none;
+  background-color: white;
+}
+.search-component {
+  width: 100%;
+}
+.search-input {
+  border-radius: 2em;
+  height: 45px;
+}

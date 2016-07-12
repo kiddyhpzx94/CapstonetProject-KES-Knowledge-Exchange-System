@@ -1,0 +1,39 @@
+<li>
+    <div class="col-md-6">
+        <div class="well well-sm">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                </div>
+                <div class="col-md-8">
+                    <a [routerLink]="['/user/'+friendName]">
+                        <h4>{{friendName}}</h4>
+                    </a>
+                    <small><cite title="San Francisco, USA">Hanoi<i class="glyphicon glyphicon-map-marker">
+                        </i></cite></small>
+                    <p>
+                        <i class="glyphicon glyphicon-envelope"></i>{{email}}
+                        <br />
+                        <i class="glyphicon glyphicon-globe"></i>{{displayname}}
+                        <br />
+                        <i class="glyphicon glyphicon-gift"></i>{{level}}</p>
+                    <!-- Split button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger">Action</button>
+                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                          </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>

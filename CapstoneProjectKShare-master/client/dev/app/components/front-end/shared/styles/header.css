@@ -1,0 +1,11 @@
+@media all and (min-width: 1024px) {
+  #bs-example-navbar-collapse-1{
+        padding-left: 5%;
+  }
+  .pd-bot-0 {
+    padding-bottom: 0px;
+  }
+  .icon-label {
+
+  }
+}

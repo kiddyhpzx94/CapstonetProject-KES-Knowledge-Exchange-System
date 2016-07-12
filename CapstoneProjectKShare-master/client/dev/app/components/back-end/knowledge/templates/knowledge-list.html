@@ -1,0 +1,88 @@
+<nav-bar></nav-bar>
+<sidebar></sidebar>
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+  <div class="row">
+    <ol class="breadcrumb">
+    </ol>
+  </div>
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Knowledges Management</h1>
+    </div>
+  </div>
+<knowledge-create></knowledge-create>
+
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3">
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                      data-target="#modalCreateKnowledge">
+                Create Knowledge
+              </button>
+            </div>
+            <div class="col-md-9"></div>
+            <div class="col-md-3"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table mg-top-15px" align="center">
+                <thead>
+                  <tr class="tb-header">
+                    <th>Knowledge</th>
+                    <th>Description</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let knowledge of knowledges">
+                  <tr data-toggle="collapse" [attr.data-target]="'.' + knowledge._id">
+                    <td>{{knowledge.name}}</td>
+                    <td>{{knowledge.description}}</td>
+                    <th>
+                      <button class="glyphicon glyphicon-trash btn btn-danger" (click)="deleteKnowledge(knowledge._id)"></button>
+                      <a [routerLink]="['/admin/knowledges/'+ knowledge._id]"><span class="btn btn-warning glyphicon glyphicon-pencil"></span></a>
+                      <button class="glyphicon glyphicon-send btn btn-primary" data-toggle="modal" [attr.data-target]="'#' + knowledge._id"></button>
+                      <sub-create kId="{{knowledge._id}}"></sub-create>
+                    </th>
+                  </tr>
+                  <tr bgcolor="#5bc0de" *ngFor="let subCate of knowledge.subCategory" class="collapse" class="{{knowledge._id}}" hidden>
+                    <td>{{subCate.name}}</td>
+                    <td>{{subCate.description}}</td>
+                    <th>
+                      <button class="glyphicon glyphicon-trash btn btn-danger" (click)="deleteKnowledge(subCate._id)"></button>
+                      <a [routerLink]="['/admin/knowledges/'+ subCate._id]"><span class="btn btn-warning glyphicon glyphicon-pencil"></span></a>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+              <!--<ul class="list-group">
+                <li class="list-group-item" *ngFor="let back.knowledge of knowledges" data-toggle="collapse" data-target=".sub">
+                  <span>{{back.knowledge.name}}</span>
+                  <span>{{back.knowledge.description}}</span>
+                  <button class="glyphicon glyphicon-trash btn btn-danger" (click)="deleteKnowledge(back.knowledge._id)"></button>
+                  <a [routerLink]="['/admin/knowledges/'+ back.knowledge._id]"><span class="btn btn-warning glyphicon glyphicon-pencil"></span></a>
+                  <button class="glyphicon glyphicon-send btn btn-primary" data-toggle="modal" data-target="#modalCreateSubCategory"></button>
+                  <sub-create kId="{{back.knowledge._id}}"></sub-create>
+                  <ul class="collapse list-group sub" *ngIf="back.knowledge.subCategory.length > 0">
+                    <li *ngFor="let subCate of back.knowledge.subCategory" class="list-group-item">
+                      <span>{{subCate.name}}</span>
+                      <span>{{subCate.description}}</span>
+                      <button class="glyphicon glyphicon-trash btn btn-danger" (click)="deleteKnowledge(subCate._id)"></button>
+                      <a [routerLink]="['/admin/knowledges/'+ subCate._id]"><span class="btn btn-warning glyphicon glyphicon-pencil"></span></a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/.row-->
+</div>
+<!--/.main-->

@@ -1,0 +1,19 @@
+<div class="col-md-12">
+  <table class="table table-striped mg-top-15px" align="center">
+    <thead>
+      <tr class="tb-header">
+        <th>Word</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let badword of badwords">
+        <td>{{badword.word}}</td>
+        <th>
+          <button class="glyphicon glyphicon-trash btn btn-danger" (click)="deleteBadword(badword._id)"></button>
+          <a href="/admin/badwords/{{badword._id}}"><span class="btn btn-warning glyphicon glyphicon-pencil"></span></a>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>

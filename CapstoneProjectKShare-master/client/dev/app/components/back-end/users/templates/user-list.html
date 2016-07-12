@@ -1,0 +1,76 @@
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+  <div class="row">
+    <ol class="breadcrumb">
+      <li>
+        <a href="#">
+          <svg class="glyph stroked home">
+            <use xlink:href="#stroked-home"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="active">Users</li>
+    </ol>
+  </div>
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Users Management</h1>
+    </div>
+    <hr>
+  </div>
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <div class="row">
+            <div class="col-md-3">
+              <button type="button" class="ui-widget-header ui-helper-clearfix" id="createUser" data-toggle="modal"
+                      data-target="#modalCreateUser">
+                Create User
+              </button>
+              <!-- Modal Create User -->
+              <user-create></user-create>
+            </div>
+            <div class="col-md-9"></div>
+            <div class="col-md-3"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div *ngIf="errorMessage">
+                {{errorMessage}}
+              </div>
+              <p-dataTable [value]="users" resizableColumns="true" [rows]="10" [paginator]="true" [globalFilter]="gb">
+                <header>
+                  <h4 style="color:white; font-weight: 500;">User List</h4>
+                </header>
+                <footer>There are {{numOfUser}} users</footer>
+                <p-column field="name.firstName" header="First Name" [sortable]="true"></p-column>
+                <p-column field="name.lastName" header="Last Name"[sortable]="true"></p-column>
+                <p-column field="displayName" header="Display Name"[sortable]="true"></p-column>
+                <p-column field="birthday" header="Birthday"[sortable]="true">
+                  <template let-col let-user="rowData">
+                      {{user[col.field] | date:"dd/MM/yyyy"}}
+                  </template>
+                </p-column>
+                <p-column field="username" header="Username"[sortable]="true"></p-column>
+                <p-column field="email" header="Email"[sortable]="true"></p-column>
+                <p-column field="role" header="Role"[sortable]="true"></p-column>
+                <p-column field="createdAt" header="Created At"[sortable]="true">
+                  <template let-col let-user="rowData">
+                    {{user[col.field] | date:"dd/MM/yyyy"}}
+                  </template>
+                </p-column>
+              </p-dataTable>
+            </div>
+          </div>
+          <!-- /.row -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/.row-->
+</div>
+

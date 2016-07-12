@@ -1,0 +1,11 @@
+.idea
+node_modules
+demo
+client/dev/index.js
+client/dev/*.map
+client/dev/app/**/*.js
+client/dev/app/**/*.map
+client/dist/*.js
+client/dist/*.map
+npm-debug.log
+tests

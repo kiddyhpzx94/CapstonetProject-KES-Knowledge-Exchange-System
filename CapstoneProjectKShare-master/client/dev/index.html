@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<base href="/" >
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<!--<link rel="shortcut icon" type="image/ico" href="favicon.png" />-->
+<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="../client/dev/asserts/css/styles.css" rel="stylesheet" type="text/css"/>
+<link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="node_modules/primeui/primeui-all.css" rel="stylesheet" type="text/css"/>
+<link href="node_modules/primeui/themes/redmond/theme.css" rel="stylesheet" type="text/css"/>
+  <!-- 1. Load libraries -->
+  <!-- Polyfill(s) for older browsers -->
+  <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+  <script src="node_modules/core-js/client/shim.min.js"></script>
+  <script src="node_modules/zone.js/dist/zone.js"></script>
+  <script src="node_modules/reflect-metadata/Reflect.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <!-- 2. Configure SystemJS -->
+  <script src="systemjs.config.js"></script>
+
+  <script>
+    System.import("client/dev/index.js");
+  </script>
+  <!-- 3. javascript libraries-->
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="node_modules/socket.io-client/socket.io.js"></script>
+  <script src="../client/dev/asserts/js/modernizr.custom.js"></script>
+
+<title>Knowledge sharing network</title>
+</head>
+<body>
+  <kshare-app></kshare-app>
+  <!--<demo-rtc></demo-rtc>-->
+</body>
+</html>

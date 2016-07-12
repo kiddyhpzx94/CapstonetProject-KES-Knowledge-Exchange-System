@@ -1,0 +1,26 @@
+<br>
+<br>
+<br>
+<div class="container" style="min-height:437px">
+  <request-create></request-create>
+  <div class="col-xs-12 col-sm-9 fixEfMenu" id="lst-request">
+    <br>
+    <br>
+    <div class="panel panel-default card-rq" *ngFor="let request of requests">
+      <div class="panel-body">
+        <a [routerLink]="['/kshare/requests/'+ request._id]">
+          <p class="lead"> {{request.title}}</p>
+        </a>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 fixEfMenu">
+          Người tạo : {{request.user}}
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 fixEfMenu">
+          Trạng thái : {{request.status}}
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-left fixEfMenu">
+          Ngày tạo : {{request.createdAt}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
