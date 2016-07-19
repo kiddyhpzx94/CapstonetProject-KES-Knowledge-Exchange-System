@@ -3,5 +3,5 @@ export interface KSpace {
   lecturer:string;
   requestId:string;
   offerId:string;
-  createdAt: date;
+  createdAt: string;
 }

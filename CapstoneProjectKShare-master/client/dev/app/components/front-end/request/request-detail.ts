@@ -44,10 +44,13 @@ export class RequestDetailClientComponent {
   user: string;
   knowledgeId: string;
   subscribers: string[];
+
   //varialbe check to hide button when the status is deactive
   checkDeactive: boolean;
+
   //variable check to hide button, user can't front.offer their of templates
   checkCreatedUser: boolean;
+  
   //variable check to hide button, user can't subcribe twice in a templates
   checkSubcribedUser: boolean;
   offers: Offer[];
@@ -94,7 +97,6 @@ export class RequestDetailClientComponent {
           for (var i = 0; i < this.subscribers.length; i++) {
             if (this.userToken === this.subscribers[i]) {
               this.checkSubcribedUser = true;
-              console.log(this.checkSubcribedUser + " " + i);
               break;
             }
           }

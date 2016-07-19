@@ -15,7 +15,8 @@ System.config({
   },
   map: {
     "rxjs": "node_modules/rxjs",
-    "jquery": "node_modules/jquery/dist/jquery.min"
+    "jquery": "node_modules/jquery/dist/jquery.min",
+    "socket.io": "node_modules/socket.io-client/socket.io"
   },
   packages: {
     "socket.io-client": {

@@ -16,5 +16,9 @@ module.exports = class NotificationRoutes {
     router
         .route('/api/getNotification')
         .post(NotificationController.getNotificationByUser);
+
+    router
+        .route('/api/change-status-notification/:user')
+        .get(NotificationController.changeStatusNotification);
     }
 }

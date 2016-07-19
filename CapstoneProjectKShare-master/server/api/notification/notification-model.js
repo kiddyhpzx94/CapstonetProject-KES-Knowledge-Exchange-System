@@ -27,6 +27,9 @@ const _notificationSchema = {
     status: {
         type: String,
         default: 'Chưa đọc'
+    },
+    link: {
+        type: String
     } 
 }
 

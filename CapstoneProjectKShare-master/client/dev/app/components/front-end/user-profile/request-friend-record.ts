@@ -7,7 +7,8 @@ import { PushNotificationComponent } from '../shared/notification';
 
 //services
 import { UserService } from '../../../services/users';
-import { AuthService } from '../../../services/auth';;
+import { AuthService } from '../../../services/auth';
+import { NotificationService } from '../../../services/notification';
 
 //interfaces
 import { User } from '../../../interface/user';
@@ -26,7 +27,7 @@ import { FriendShip } from '../../../interface/friendship';
 export class RequestFriendRecordComponent {
   @Input('requestUser') requestUser: string;
   @Input('name') name: string;
-  
+
   displayname: string;
   email: string;
   level: string;
@@ -34,7 +35,8 @@ export class RequestFriendRecordComponent {
   isFriend: boolean;
 
   isAdded: boolean;
-  constructor(private router: Router, private route: ActivatedRoute, private _userService: UserService) {
+  constructor(private router: Router, private route: ActivatedRoute, private _userService: UserService,
+    public _noti: NotificationService) {
     this.route
       .params
       .subscribe(params => {
@@ -54,11 +56,20 @@ export class RequestFriendRecordComponent {
         console.log("accepted successful");
         alert("Bạn đã là bạn bè với " + this.requestUser);
         this.isAdded = true;
+
+        var title = this.name + ' chấp nhận kết bạn';
+        var body = 'Bạn và ' + this.name + ' đã là bạn bè!';
+        var link = '/user/' + this.name;
+
+        this._noti.createNotification(title, body, this.requestUser, link).subscribe(
+          (notification) => {
+            console.log('create a notification to ' + this.name);
+          });
       }
     );
   }
 
-  getUserInformation():void {
+  getUserInformation(): void {
     this._userService.getUserByUserName(this.requestUser).subscribe(
       (userinfo) => {
         this.displayname = userinfo.displayName;

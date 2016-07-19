@@ -1,13 +1,10 @@
-
+<br/><br/>
 <div class="container mg-top-50" *ngIf="request && knowledge">
 
   <div class="col-xs-12 col-sm-9 fixEfMenu">
     <div class="panel panel-default card-rq">
       <div class="panel-body">
-        <p class="lead">Tìm người giảng bài</p>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 fixEfMenu">
-          Tiêu đề : {{request.title}}
-        </div><br>
+        <p class="lead">{{request.title}}</p>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 fixEfMenu">
           Người tạo : <a [routerLink]=[request.userlink]>{{request.user}}</a>
         </div><br>
@@ -27,9 +24,9 @@
           Nội dung : {{request.description}}
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-lef fixEfMenu" *ngIf="subscribers">
-            Danh sách theo dõi :
-            <p *ngFor="let subscriber of subscribers">{{subscriber}}</p>
-          </div>
+          Danh sách theo dõi :
+          <p *ngFor="let subscriber of subscribers"><a [routerLink]="['/user/' + subscriber]">{{subscriber}}</a></p>
+        </div>
       </div>
     </div>
   </div>
@@ -41,8 +38,8 @@
   <div [hidden]="checkDeactive" class="col-xs-12 col-sm-6 col-md-6 col-lg-6 fixEfMenu">
     <a [routerLink]="[updateLink]" [hidden]="!checkCreatedUser"><span
        class="btn btn-warning glyphicon glyphicon-pencil" ></span></a>
-    <a [hidden]="!checkCreatedUser" ><button class="glyphicon glyphicon-trash btn btn-danger" (click)="deactivateRequest(_id)"></button></a>
-    <a [hidden]="checkCreatedUser" ><button class="glyphicon glyphicon-send btn btn-primary" data-toggle="modal" data-target="#modalOfferRequest"></button></a>
+    <a [hidden]="!checkCreatedUser"><button class="glyphicon glyphicon-trash btn btn-danger" (click)="deactivateRequest(_id)"></button></a>
+    <a [hidden]="checkCreatedUser"><button class="glyphicon glyphicon-send btn btn-primary" data-toggle="modal" data-target="#modalOfferRequest"></button></a>
     <a [hidden]="checkCreatedUser"><button class="glyphicon glyphicon-eye-open btn btn-info" (click)="addSubcriber(_id)" ></button></a>
   </div>
 </div>

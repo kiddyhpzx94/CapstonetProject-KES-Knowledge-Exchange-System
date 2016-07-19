@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router, ActivatedRoute} from '@angular/router';
+import {RouteParams} from '@angular/router-deprecated';
 import { Request } from '../../../interface/request';
 import { Knowledge } from '../../../interface/knowledge';
 
@@ -16,24 +17,24 @@ export class RequestCategoryComponent {
   @Input() search: string;
   pageTitle: string = 'Welcome to Knowledge Sharing Network';
 
-  id: string;
-  type: string;
-
-  constructor(private _requestService: RequestService, public router: Router, private route: ActivatedRoute) {
+  // id: string;
+  // type: string;
+  identify: string;
+  typee: string;
+  constructor(private _requestService: RequestService, public router: Router, 
+                  private route: ActivatedRoute) {
     this.route
       .params
       .subscribe(params => {
-        this.id = params['id'];
-        this.type = params['type'];
+        let type = params['type'];
+        this.typee = type;
+        let id = params['id'];
+        this.identify = id;
       });
-  }
-  requests: Request[];
-  knowledges: Knowledge[];
 
-  ngOnInit(): void {
-    //get templates from children category
-    if (this.type === "	") {
-      this._requestService.getRequestByKnowledgeId(this.id).subscribe(
+      //get templates from children category
+    if (this.typee === "subcategory") {
+      this._requestService.getRequestByKnowledgeId(this.identify).subscribe(
         (requests) => {
           //format date
           var formatDate = function (date) {
@@ -54,8 +55,8 @@ export class RequestCategoryComponent {
     }
 
     //get templates from parent category
-    if (this.type === "category") {
-      this._requestService.getKnowledgeByParent(this.id).subscribe(
+    if (this.typee === "category") {
+      this._requestService.getKnowledgeByParent(this.identify).subscribe(
         (knowledges) => {
           var formatDate = function (date) {
             if (date) {
@@ -88,5 +89,10 @@ export class RequestCategoryComponent {
           console.log(Error);
         });
     }
+ 
   }
+  requests: Request[];
+  knowledges: Knowledge[];
+
+
 }

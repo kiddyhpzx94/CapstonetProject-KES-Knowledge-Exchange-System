@@ -71,8 +71,6 @@ export class RequestUpdateClientComponent {
     );
   }
 
-
-
   updateRequest(request) {
     this._requestService.updateRequest(request).subscribe((request)=> {
       console.log('update successed');

@@ -60,6 +60,17 @@ notificationSchema.statics.getNotificationByUser = (user) => {
       });
 }
 
+//update friendship dao function
+notificationSchema.statics.updateNotification = (info) => {
+  return new Promise((resolve, reject) => {
+
+    info.save((err, saved) => {
+      err ? reject(err)
+        : resolve(saved);
+    });
+  });
+}
+
 const Notification  = mongoose.model('Notification', notificationSchema);
 
 module.exports = Notification;

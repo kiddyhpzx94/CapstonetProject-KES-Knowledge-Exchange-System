@@ -1,6 +1,6 @@
 <div>
     <div class="panel-body" style="border-bottom: 2px solid ">
-        <a href="/requests/{{requestId}}/info">
+        <a [routerLink]="['/requests/' + requestId + '/info']">
             <p class="lead">{{title}}</p>
         </a>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 fixEfMenu">

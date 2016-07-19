@@ -6,6 +6,7 @@ import { Router, ROUTER_DIRECTIVES, ActivatedRoute} from'@angular/router';
 import { PushNotificationComponent } from '../shared/notification';
 import { RequestFriendRecordComponent } from './request-friend-record';
 import { FriendRecordComponent } from './friend-record';
+import { UserProfileBarComponent } from './user-profile-bar';
 
 //services
 import { UserService } from '../../../services/users';
@@ -23,7 +24,8 @@ import { Request } from '../../../interface/request';
     ROUTER_DIRECTIVES,
     PushNotificationComponent,
     RequestFriendRecordComponent,
-    FriendRecordComponent
+    FriendRecordComponent,
+    UserProfileBarComponent
   ]
 })
 
@@ -91,7 +93,6 @@ export class FriendListComponent {
       }
 
     }
-    console.log(this.friendNames);
   }
 
 }

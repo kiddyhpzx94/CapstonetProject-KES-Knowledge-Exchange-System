@@ -38,10 +38,9 @@ const server = https.createServer(opts,app)
 
 const io = socket(server);
 // Set socket.io listeners.
-io.on('connection', (socket) => {
-  console.log('a user connected');
-
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
+io.on('connection', function (socket) {
+  //socket.broadcast.emit('notification', { hello: 'world' });
+  socket.on('send notification', function (data) {
+    socket.emit('receive notification', {data})
   });
 });

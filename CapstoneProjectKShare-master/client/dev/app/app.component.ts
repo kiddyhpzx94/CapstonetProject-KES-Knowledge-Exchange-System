@@ -18,12 +18,13 @@ import { KshareComponent } from "./components/kshare.component";
  * services
  **/
 
-import {KnowledgeService} from "./services/knowledge";
-import {OfferService} from "./services/request-offer";
-import {RequestService} from "./services/requests";
-import {UserService} from "./services/users";
-import {AuthService} from "./services/auth";
-import {KSpaceService} from "./services/kspace";
+import { KnowledgeService } from "./services/knowledge";
+import { OfferService } from "./services/request-offer";
+import { RequestService } from "./services/requests";
+import { UserService } from "./services/users";
+import { AuthService } from "./services/auth";
+import { NotificationService } from"./services/notification";
+import { KSpaceService } from "./services/kspace";
 
 @Component({
   selector: 'kshare-app',
@@ -39,7 +40,8 @@ import {KSpaceService} from "./services/kspace";
     RequestService,
     OfferService,
     KnowledgeService,
-    KSpaceService
+    KSpaceService,
+    NotificationService
   ]
 })
 

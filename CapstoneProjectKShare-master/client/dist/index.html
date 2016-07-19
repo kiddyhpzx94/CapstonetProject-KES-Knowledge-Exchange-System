@@ -29,14 +29,7 @@
 
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="node_modules/socket.io-client/socket.io.js"></script>
-  <script>
-    var socket = io('https://localhost');
-    socket.on('news', function (data) {
-      console.log(data);
-      socket.emit('my other event', { my: 'data' });
-    });
-  </script>
+  <!--<script src="node_modules/socket.io-client/socket.io.js"></script>-->
   <script src="../client/dev/asserts/js/modernizr.custom.js"></script>
 
   <script type="text/javascript" src="../client/dev/demo/simplewebrtc.js"></script>

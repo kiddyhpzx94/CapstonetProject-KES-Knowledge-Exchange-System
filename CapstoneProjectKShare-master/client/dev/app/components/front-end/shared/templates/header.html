@@ -1,3 +1,9 @@
+<push-notification #myNotification title="demo notification" icon="https://goo.gl/3eqeiE" body="demo notification">
+</push-notification>
+<!--<audio id="myAudio">
+  <source src="Dieu Bi Mat - ItsLee Binz.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>-->
 <div class="navbar-header-common">
   <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
     <div class="container topnav">
@@ -16,15 +22,34 @@
         <a class="navbar-brand topnav" [routerLink]="['/']">Kshare.xyz</a>
         <ul class="nav navbar-nav navbar-right" *ngIf="userToken">
           <li>
-            <a [routerLink]="['/kspace']" class="pd-bot-0"
-            ><i class="fa fa-television" aria-hidden="true"></i></a>
+            <a [routerLink]="['/kspace']" class="pd-bot-0"><i class="fa fa-television" data-toggle="dropdown" aria-hidden="true"></i></a>
           </li>
-          <li>
-            <a [routerLink]="['/']" class="pd-bot-0" ><i class="fa fa-bullhorn" aria-hidden="true"></i></a>
+          <!--toggle notifications-->
+          <li class="dropdown" *ngIf="notifications">
+            <a (click)="changeStatusNotification()" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <i data-count="2" class="glyphicon glyphicon-bell notification-icon"></i>
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu"><b>Chưa đọc <span style="color:red;">{{countUnReadNoti}}</span></b>
+              <li *ngFor="let notification of notifications">
+                <a [routerLink]="[notification.link]">
+                  <span *ngIf="notification.status === 'Đã đọc'">{{notification.title}}</span>
+                  <span *ngIf="notification.status === 'Chưa đọc'" style="color:red;">{{notification.title}}</span>
+                </a>
+              </li>
+
+            </ul>
           </li>
+          <!--end notification-->
           <li>
-            <a [routerLink]="['/requests']" class="pd-bot-0" ><i class="fa fa-comments-o"
+            <a [routerLink]="['/requests']" class="pd-bot-0"><i class="fa fa-comments-o" 
                                                                         aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <div class="btn-group" style="padding-top:8%;padding-right:8%;">
+              <button type="button" style="border:none;" class="btn btn-default" aria-haspopup="true" aria-expanded="false" [routerLink]="['/user/' + userToken]">
+              {{userToken}} 
+            </button>
+            </div>
           </li>
           <li>
             <button class="btn btn-success btLogin" (click)="logout()">Logout</button>
@@ -32,14 +57,13 @@
         </ul>
         <ul class="nav navbar-nav navbar-right" *ngIf="!userToken">
           <li>
-            <a [routerLink]="['/kspace']" class="pd-bot-0" >Giới thiệu </a>
+            <a [routerLink]="['/kspace']" class="pd-bot-0">Giới thiệu </a>
           </li>
           <li>
-            <a [routerLink]="['/kspace']" class="pd-bot-0" >Trải nghiệm Kspace </a>
+            <a [routerLink]="['/kspace']" class="pd-bot-0">Trải nghiệm Kspace </a>
           </li>
           <li>
-            <button class="btn btn-success btLogin" id="btnShowLogin" data-toggle="modal"
-                    data-target="#modalLogin">Login</button>
+            <button class="btn btn-success btLogin" id="btnShowLogin" data-toggle="modal" data-target="#modalLogin">Login</button>
           </li>
         </ul>
       </div>
