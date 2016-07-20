@@ -81,13 +81,6 @@ export class UserProfileBarComponent {
       this.getFriendList();
     }
 
-    var socket = io('https://localhost:3333');
-    socket.on('receive notification', function (data){
-      // if(this.userToken === data.user){
-        console.log(data);
-      // }
-    })
-
   }
 
   addFriend(): void {
@@ -101,11 +94,6 @@ export class UserProfileBarComponent {
     var body = 'Bạn đã nhận được lời mời kết bạn của ' + this.userToken;
     var link = '/user/' + this.name + '/friends';
 
-    this._noti.createNotification(title, body, this.name, link).subscribe(
-      (notification) => {
-        console.log('create a notification to ' + this.name);
-      });
-    this.getFriendList();
     alert("đã gửi lời mời kết bạn thành công");
 
     var socket = io('https://localhost:3333');
@@ -115,12 +103,16 @@ export class UserProfileBarComponent {
       link: link,
       user: this.name
     });
-    socket.on('receive notification', function (data){
-      // if(this.userToken === data.user){
-        console.log(data);
-      // }
-    })
-
+    this._noti.createNotification(title, body, this.name, link).subscribe(
+      (notification) => {
+        console.log(notification);
+        // this.countUnReadNoti = 0;
+        // for (var i = 0; i < this.notifications.length; i++) {
+        //   if (this.notifications[i].status === "Chưa đọc") {
+        //     this.countUnReadNoti++;
+        //   }
+        // }
+      });
   }
 
   deleteFriend(): void {

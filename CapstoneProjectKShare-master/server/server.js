@@ -41,6 +41,6 @@ const io = socket(server);
 io.on('connection', function (socket) {
   //socket.broadcast.emit('notification', { hello: 'world' });
   socket.on('send notification', function (data) {
-    socket.emit('receive notification', {data})
+    socket.broadcast.emit('receive notification', {data})
   });
 });
